@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/08/16 18:21:24 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/08/20 18:44:24 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@
 # define MESSAGE3 "=================\n./philo "
 # define MESSAGE4 "[num of philos] [time_to_die] [time_to_eat] "
 # define MESSAGE5 "[time_to_sleep] [num_of_times_each_philo_must_eat]\033[0m\n"
+
+int		ft_atoi(char *str);
 
 #endif

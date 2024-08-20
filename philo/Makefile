@@ -6,12 +6,13 @@
 #    By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 17:58:45 by yrodrigu          #+#    #+#              #
-#    Updated: 2024/08/16 18:05:39 by yrodrigu         ###   ########.fr        #
+#    Updated: 2024/08/20 18:44:06 by yrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 CFILES =	philo.c\
+			utilities.c\
 
 OFILES = $(CFILES:.c=.o)
 

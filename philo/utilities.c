@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   utilities.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/16 18:00:34 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/08/20 18:55:52 by yrodrigu         ###   ########.fr       */
+/*   Created: 2024/08/20 18:33:39 by yrodrigu          #+#    #+#             */
+/*   Updated: 2024/08/20 18:46:52 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
 
-int main(int argc, char **argv)
+int	ft_atoi(char *str)
 {
-	if (argc < 5 || argc > 6)
+	int result;
+	int sign;
+
+	result = 0;
+	sign = 1;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
 	{
-		printf("%s%s%s%s%s", MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4, MESSAGE5);
+		sign = -sign;
+		str++;
 	}
-	int i = 1;
-	while (argv[i])
+	while(*str)
 	{
-		ft_atoi(argv[i]);
-		i++;
+		result = result * 10 + (*str - 48);
+		str++;
 	}
-	return (0);
+	if ((sign * result) < 0)
+	{
+		printf("non-numeric values allowed\n");
+		exit(0);
+	}
+	return (sign * result);
 }
