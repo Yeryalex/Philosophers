@@ -6,17 +6,16 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/08/20 18:44:24 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/08/20 20:20:12 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 # define MESSAGE "\033[96m=========================="
 # define MESSAGE2 "===========\n\t\tUsage:\n===================="
