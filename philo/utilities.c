@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 18:33:39 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/08/26 18:26:19 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/08/26 19:20:37 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -35,7 +35,7 @@ int	ft_atoi(char *str)
 	if (non_numeric(str) == 1)
 	{
 		printf("Only positive and numeric values are allowed!!!\n");
-		exit(0);
+		exit(1);
 	}
 	while (*str)
 	{
@@ -50,7 +50,8 @@ void	check_arg(int argc, char **argv)
     if (argc < 5 || argc > 6)
     {
         printf("%s%s%s%s%s", MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4, MESSAGE5);
-    }
+   		exit (1);
+   	}
     int i = 1;
     while (argv[i])
     {
