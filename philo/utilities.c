@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 18:33:39 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/08/20 20:19:50 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:26:19 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -43,4 +43,18 @@ int	ft_atoi(char *str)
 		str++;
 	}
 	return (result);
+}
+
+void	check_arg(int argc, char **argv)
+{
+    if (argc < 5 || argc > 6)
+    {
+        printf("%s%s%s%s%s", MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4, MESSAGE5);
+    }
+    int i = 1;
+    while (argv[i])
+    {
+        ft_atoi(argv[i]);
+        i++;
+    }
 }
