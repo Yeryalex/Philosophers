@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/09/16 17:38:49 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/09/16 18:27:25 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define MESSAGE4 "[num of philos] [time_to_die] [time_to_eat] "
 # define MESSAGE5 "[time_to_sleep] [num_of_times_each_philo_must_eat]\033[0m\n"
 
-struct	s_philo
+typedef struct	s_philo
 {
 	pthread_t	thread;
 	int		id;
@@ -35,9 +35,9 @@ struct	s_philo
 	size_t	meals_for_philo;
 } 	t_philo;
 
-struct	s_program
+typedef struct	s_program
 {
-	//t_philo		*philos;	
+	t_philo		*philos;	
 }	t_program;
 
 int		ft_atoi(char *str);
