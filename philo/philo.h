@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/08/26 19:35:10 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/09/16 17:38:49 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ struct	s_philo
 
 struct	s_program
 {
-	t_philo		*philos;	
+	//t_philo		*philos;	
 }	t_program;
 
 int		ft_atoi(char *str);
