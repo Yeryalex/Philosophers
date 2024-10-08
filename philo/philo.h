@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/08 16:52:01 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/08 17:53:03 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ typedef struct	s_philo
 	size_t	time_to_sleep;
 	size_t	meals_for_philo;
 } 	t_philo;
-
+/*
 typedef struct	s_program
 {
 	t_philo		*philos;	
 }	t_program;
-
+*/
 int		ft_atoi(char *str);
 void	check_arg(int argc, char **argv);
 int		non_numeric(char *str);
-void	assign_philos(char **argv);
+void	init_philo_values(t_philo *philos, char **argv);
 
 #endif
