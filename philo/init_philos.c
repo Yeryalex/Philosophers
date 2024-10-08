@@ -6,11 +6,12 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 19:28:37 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/09/16 18:29:32 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/08 15:01:43 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
 
+/*
 void	assign_philos(t_philo *philo, t_program *program)
 {
 	size_t	philos_number;
@@ -23,4 +24,4 @@ void	assign_philos(t_philo *philo, t_program *program)
 		philo->id = i;
 		i++;
 	}
-}
+}*/
