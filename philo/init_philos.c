@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 19:28:37 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/08 18:00:56 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/09 21:09:28 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -34,3 +34,4 @@ void	init_philo_values(t_philo *philos, char **argv)
 		i++;
 	}
 }
+//testing  philo for threads!
