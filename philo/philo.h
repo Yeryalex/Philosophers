@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/08 17:53:03 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/15 19:53:09 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <pthread.h>
+# include <sys/time.h>
 
 # define MESSAGE "\033[96m=========================="
 # define MESSAGE2 "===========\n\t\tUsage:\n===================="
@@ -33,7 +34,7 @@ typedef struct	s_philo
 	size_t	time_to_die;
 	size_t	time_to_eat;
 	size_t	time_to_sleep;
-	size_t	meals_for_philo;
+	size_t	meals_per_philo;
 } 	t_philo;
 /*
 typedef struct	s_program
