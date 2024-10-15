@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 18:33:39 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/08/26 19:20:37 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/15 20:42:04 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -58,4 +58,12 @@ void	check_arg(int argc, char **argv)
         ft_atoi(argv[i]);
         i++;
     }
+}
+
+size_t	get_current_time(void)
+{
+	struct timeval current_time;
+
+	gettimeofday(&current_time, 0);
+	return(current_time.tv_sec * 1000 + current_time.tv_usec / 1000);
 }

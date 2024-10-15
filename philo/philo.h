@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/15 19:53:09 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/15 20:42:19 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ int		ft_atoi(char *str);
 void	check_arg(int argc, char **argv);
 int		non_numeric(char *str);
 void	init_philo_values(t_philo *philos, char **argv);
+size_t	get_current_time(void);
 
 #endif
