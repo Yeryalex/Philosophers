@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 18:00:34 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/15 21:58:14 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/16 12:48:18 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -15,8 +15,8 @@ int main(int argc, char **argv)
 {
 	t_philo		philos[MAX_PHILOS];
 
-	(void)philos;
 	check_arg(argc, argv);
 	init_philo_values(philos, argv);
+	create_threads(philos);
 	return (0);
 }

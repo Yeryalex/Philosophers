@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/16 11:42:29 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/16 13:08:47 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define MESSAGE3 "=================\n./philo "
 # define MESSAGE4 "[num of philos] [time_to_die] [time_to_eat] "
 # define MESSAGE5 "[time_to_sleep] [num_of_times_each_philo_must_eat]\033[0m\n"
-# define MAX_PHILOS 200
+# define MAX_PHILOS 242
 
 typedef struct	s_philo
 {
@@ -44,5 +44,6 @@ void	check_arg(int argc, char **argv);
 int		non_numeric(char *str);
 void	init_philo_values(t_philo *philos, char **argv);
 size_t	get_current_time(void);
+void	create_threads(t_philo *philos);
 
 #endif
