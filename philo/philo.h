@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/15 21:57:20 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/16 11:42:29 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct	s_philo
 	size_t	time_to_eat;
 	size_t	time_to_sleep;
 	size_t	meals_per_philo;
+	size_t	*right_fork;
+	size_t	*left_fork;
 } 	t_philo;
 
 int		ft_atoi(char *str);
