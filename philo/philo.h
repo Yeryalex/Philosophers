@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/16 15:04:42 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:31:50 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,15 @@ typedef struct	s_philo
 	size_t	time_to_eat;
 	size_t	time_to_sleep;
 	size_t	meals_per_philo;
-	int		*dead;;
-	pthread_mutex_t	*right_fork;
-	pthread_mutex_t	*left_fork;
-	pthread_mutex_t	*write_lock;
+	int		*dead;
+	pthread_mutex_t	*mutex;
+	size_t	*right_fork;
+	size_t	*left_fork;
+/*	pthread_mutex_t	*write_lock;
 	pthread_mutex_t	*dead_lock;
-	pthread_mutex_t	*meal_lock;
+	pthread_mutex_t	*meal_lock;*/
 } 	t_philo;
-
+/*
 typedef struct s_program
 {
 	int	dead_flag;
@@ -55,7 +56,7 @@ typedef struct s_program
 	pthread_mutex_t	meal_lock;
 	t_philo *philo;
 }	t_program
-
+*/
 int		ft_atoi(char *str);
 void	check_arg(int argc, char **argv);
 int		non_numeric(char *str);
