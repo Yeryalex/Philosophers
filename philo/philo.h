@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/16 13:08:47 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/16 13:33:47 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 # define MESSAGE4 "[num of philos] [time_to_die] [time_to_eat] "
 # define MESSAGE5 "[time_to_sleep] [num_of_times_each_philo_must_eat]\033[0m\n"
 # define MAX_PHILOS 242
+# define CYAN "\033[96m"
+# define GREEN "\033[92m"
+# define YELLOW "\033[93m"
+# define MAGENTA "\033[95m"
 
 typedef struct	s_philo
 {

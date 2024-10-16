@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 21:58:57 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/16 13:05:43 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:08:45 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -16,21 +16,27 @@ void	*print_message(void *argument)
 	t_philo	*philo;
 
 	philo = (t_philo *)argument;
-	printf("Hello, I am a philo %zu printing this function!\n", philo->id);
+
+	pthread_mutex_lock(&mutex);
+	printf("%sHello, I am a philo %zu using fork right %zu and left %zu!\n", MAGENTA, philo->id, *(philo)->right_fork, *(philo)->left_fork);
+	pthread_mutex_unlock(&mutex);
 	return (0);
 }
 
-void	create_threads(t_philo *philos)
+void	create_threads(t_philo *philos, pthread_mutex_t mutex)
 {
 	int i;
 	int total_philos;
+	pthread_mutex_t	mutex;
+
+	pthread_mutex_init(&mutex, NULL);
 
 	i = 0;
 	total_philos = philos[i].num_of_philos;
 	while (i < total_philos)
 	{
 		pthread_create(&philos[i].thread, NULL, print_message, &philos[i]);
-		printf("philo thread number %zu is created\n", philos[i].id);
+		printf("%sphilo thread number %zu is created\n\033[0m",CYAN, philos[i].id);
 		i++;
 	}
 	sleep(1);
@@ -38,7 +44,7 @@ void	create_threads(t_philo *philos)
 	while (i < total_philos)
 	{
 		pthread_join(philos[i].thread, NULL);
-		printf("philo thread number %zu finished execution\n", philos[i].id);
+		printf("%sphilo thread number %zu finished execution\n",GREEN, philos[i].id);
 		i++;
 	}
 }
