@@ -6,11 +6,13 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 21:58:57 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/16 15:32:33 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/21 18:09:51 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
 
+
+/*
 void	*print_message(void *argument)
 {
 	t_philo	*philo;
@@ -49,4 +51,4 @@ void	create_threads(t_philo *philos)
 		i++;
 	}
 	pthread_mutex_destroy(&mutex);
-}
+}*/

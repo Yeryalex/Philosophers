@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/16 15:31:50 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:45:57 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct	s_philo
 	size_t	time_to_sleep;
 	size_t	meals_per_philo;
 	int		*dead;
-	pthread_mutex_t	*mutex;
 	size_t	*right_fork;
 	size_t	*left_fork;
 /*	pthread_mutex_t	*write_lock;
