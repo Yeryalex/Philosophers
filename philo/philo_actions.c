@@ -6,49 +6,42 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 21:58:57 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/21 18:09:51 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/21 20:28:26 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
 
-
-/*
-void	*print_message(void *argument)
+void	*print_message(void *philo)
 {
-	t_philo	*philo;
+	t_philo *philas;
+	size_t	i;
 
-	philo = (t_philo *)argument;
+	philas = (t_philo *)philo;
+	i = 0;
+    printf("from %zu I am philo thread %zu and my left %zu and right %zu\n", philas[i].num_of_philos, philas[i].id, *(philas[i]).left_fork, *(philas[i]).right_fork);
 
-	pthread_mutex_lock(philo->mutex);
-	printf("%sHello, I am a philo %zu using fork right %zu and left %zu!\n", MAGENTA, philo->id, *(philo)->right_fork, *(philo)->left_fork);
-	pthread_mutex_unlock(philo->mutex);
+
+	printf("++++\n");
 	return (0);
 }
 
 void	create_threads(t_philo *philos)
 {
-	int i;
-	int total_philos;
-	pthread_mutex_t	mutex;
-
-	pthread_mutex_init(&mutex, NULL);
-
+	size_t total_philos;
+	size_t	i;
+	total_philos = philos[0].num_of_philos;
 	i = 0;
-	total_philos = philos[i].num_of_philos;
+//	pthread_mutex_init(philos.write_lock, NULL);
 	while (i < total_philos)
 	{
-		philos[i].mutex = &mutex;
-		pthread_create(&philos[i].thread, NULL, print_message, &philos[i]);
-		printf("%sphilo thread number %zu is created\n\033[0m",CYAN, philos[i].id);
+		pthread_create(&philos[i].thread, NULL, print_message, philos);
 		i++;
 	}
-	sleep(1);
-	i = 0;
-	while (i < total_philos)
-	{
-		pthread_join(philos[i].thread, NULL);
-		printf("%sphilo thread number %zu finished execution\n",GREEN, philos[i].id);
-		i++;
-	}
-	pthread_mutex_destroy(&mutex);
-}*/
+	    i = 0;
+    while (i < total_philos)
+    {
+        pthread_create(&philos[i].thread, NULL, print_message, philos);
+        i++;
+    }
+//	pthread_mutex_destroy(philos.write_lock);
+}

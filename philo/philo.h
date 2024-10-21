@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/18 13:45:57 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/21 20:20:38 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ typedef struct	s_philo
 	int		*dead;
 	size_t	*right_fork;
 	size_t	*left_fork;
-/*	pthread_mutex_t	*write_lock;
-	pthread_mutex_t	*dead_lock;
+	pthread_mutex_t	*write_lock;
+/*	pthread_mutex_t	*dead_lock;
 	pthread_mutex_t	*meal_lock;*/
 } 	t_philo;
 /*

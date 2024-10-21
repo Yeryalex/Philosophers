@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 19:28:37 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/21 18:16:11 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/21 20:04:55 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -34,8 +34,8 @@ void	init_philo_values(t_philo *philos, char **argv)
 			philos[i].meals_per_philo = -1;
 		i++;
 	}
-	for(size_t i = 0; i < total_philo; i++)
+/*	for(size_t i = 0; i < total_philo; i++)
 	{
 		printf("from %zu I am philo %zu and my left %zu and right %zu\n", philos[i].num_of_philos, philos[i].id, *(philos[i]).left_fork, *(philos[i]).right_fork);
-	}
+	}*/
 }
