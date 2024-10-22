@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 18:00:34 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/22 17:23:43 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:26:36 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -22,5 +22,4 @@ int main(int argc, char **argv)
 	return (0);
 }
 
-//git push https://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@github.com/Yeryalex/Philosophers.git/
 
