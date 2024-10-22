@@ -6,12 +6,12 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 19:28:37 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/21 20:04:55 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:24:02 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
 
-void	init_philo_values(t_philo *philos, char **argv)
+void	init_philo_values(t_philo *philos, char **argv, t_program *program)
 {
 	size_t i;
 	size_t total_philo;
@@ -25,6 +25,8 @@ void	init_philo_values(t_philo *philos, char **argv)
 		philos[i].time_to_eat = ft_atoi(argv[3]);
 		philos[i].time_to_sleep = ft_atoi(argv[4]);
 		philos[i].id = i + 1;
+		philos[i].write_lock = &program->write_lock;
+		philos[i].write_lock = &program->dead_lock;
 		philos[i].right_fork = &philos[i].id;
 		philos[i].left_fork = &philos[i - 1].id;
 		philos[0].left_fork = &philos[total_philo - 1].id;

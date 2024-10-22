@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/21 20:20:38 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:24:08 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ typedef struct	s_philo
 	size_t	*right_fork;
 	size_t	*left_fork;
 	pthread_mutex_t	*write_lock;
-/*	pthread_mutex_t	*dead_lock;
-	pthread_mutex_t	*meal_lock;*/
+	pthread_mutex_t	*dead_lock;
+/*	pthread_mutex_t	*meal_lock;*/
 } 	t_philo;
-/*
+
 typedef struct s_program
 {
 	int	dead_flag;
@@ -54,13 +54,13 @@ typedef struct s_program
 	pthread_mutex_t dead_lock;
 	pthread_mutex_t	meal_lock;
 	t_philo *philo;
-}	t_program
-*/
+}	t_program;
+
 int		ft_atoi(char *str);
 void	check_arg(int argc, char **argv);
 int		non_numeric(char *str);
-void	init_philo_values(t_philo *philos, char **argv);
+void	init_philo_values(t_philo *philos, char **argv, t_program *program);
 size_t	get_current_time(void);
-void	create_threads(t_philo *philos);
+void	create_threads(t_philo *philos, t_program *program);
 
 #endif
