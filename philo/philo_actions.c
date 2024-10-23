@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 21:58:57 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/23 17:37:01 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/23 17:46:34 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -16,7 +16,9 @@ void	*print_message(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	printf("Helo There! I am philo Number %i with leftfork %p and rightfork %p\n", philo->id, philo->left_fork, philo->right_fork);
+	pthread_mutex_lock(philo->left_fork);
+	printf("Helo There! I am philo Number %i\n", philo->id);
+	pthread_mutex_unlock(philo->right_fork);
 	return (NULL);
 }
 
