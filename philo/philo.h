@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/23 20:03:10 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/23 20:12:58 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,5 @@ void	create_threads(t_philo *philos, t_program *program);
 void	init_program(t_program *program, t_philo *philos);
 void	init_forks(pthread_mutex_t *forks, int num_of_philos);
 void	destroy_threads(t_program *program, pthread_mutex_t *forks, t_philo *philos);
-
+size_t	ft_usleep(size_t miliseconds);
 #endif
