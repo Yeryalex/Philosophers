@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 19:28:37 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/23 15:41:45 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:51:20 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -38,14 +38,14 @@ void	init_philo_values(t_philo *philos, char **argv, t_program *program)
 	}
 }
 
-void	init_forks(t_philo *philos, t_philo *forks)
+void	init_forks(pthread_mutex_t *forks, int num_of_philos)
 {
 	int  i;
 
 	i = 0;
-	while (i < philos[0].num_of_philos)
+	while (i < num_of_philos)
 	{
-		pthread_mutex_init(forks[i].right_fork);
+		pthread_mutex_init(&forks[i], NULL);
 		i++;
 	}
 }
@@ -67,11 +67,10 @@ void	destroy_threads(t_program *program, t_philo *forks, t_philo *philos)
 	i = 0;
 	while (i < philos[0].num_of_philos)
 	{
-		pthread_mutex_destroy(&forks->right_fork);
+		pthread_mutex_destroy(&forks[i]);
 		i++;
 	}
 	pthread_mutex_destroy(&program->write_lock);
 	pthread_mutex_destroy(&program->dead_lock);
 	pthread_mutex_destroy(&program->meal_lock);
-
 }
