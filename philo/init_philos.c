@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 19:28:37 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/23 17:40:27 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/23 20:07:44 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -32,6 +32,8 @@ void	init_philo_values(t_philo *philos, char **argv, t_program *program, pthread
 	{
 		init_input_values(&philos[i], argv);
 		philos[i].id = i + 1;
+		philos[i].start_meal = get_current_time();
+		philos[i].last_meal = get_current_time();
 		philos[i].write_lock = &program->write_lock;
 		philos[i].write_lock = &program->dead_lock;
 		philos[i].meal_lock = &program->meal_lock;
