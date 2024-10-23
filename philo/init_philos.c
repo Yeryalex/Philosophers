@@ -6,34 +6,40 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 19:28:37 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/23 15:51:20 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/23 17:40:27 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
 
-void	init_philo_values(t_philo *philos, char **argv, t_program *program)
+void	init_input_values(t_philo *philos, char **argv)
 {
-	size_t i;
-	size_t total_philo;
+	philos->num_of_philos = ft_atoi(argv[1]);
+	philos->time_to_die = ft_atoi(argv[2]);
+	philos->time_to_eat = ft_atoi(argv[3]);
+	philos->time_to_sleep = ft_atoi(argv[4]);
+	if (argv[5])
+		philos->meals_per_philo = ft_atoi(argv[5]);
+	else
+		philos->meals_per_philo = -1;
+}
+
+void	init_philo_values(t_philo *philos, char **argv, t_program *program, pthread_mutex_t *forks)
+{
+	int	i;
 
 	i = 0;
-	total_philo = ft_atoi(argv[1]);
-	while(i < total_philo)
+	while(i < ft_atoi(argv[1]))
 	{
-		philos[i].num_of_philos = total_philo;
-		philos[i].time_to_die = ft_atoi(argv[2]);
-		philos[i].time_to_eat = ft_atoi(argv[3]);
-		philos[i].time_to_sleep = ft_atoi(argv[4]);
+		init_input_values(&philos[i], argv);
 		philos[i].id = i + 1;
 		philos[i].write_lock = &program->write_lock;
 		philos[i].write_lock = &program->dead_lock;
-		philos[i].right_fork = &philos[i].id;
-		philos[i].left_fork = &philos[i - 1].id;
-		philos[0].left_fork = &philos[total_philo - 1].id;
-		if (argv[5])
-			philos[i].meals_per_philo = ft_atoi(argv[5]);
+		philos[i].meal_lock = &program->meal_lock;
+		philos[i].right_fork = &forks[i];
+		if (i == 0)
+			philos[i].left_fork = &forks[ft_atoi(argv[1]) - 1];
 		else
-			philos[i].meals_per_philo = -1;
+			philos[i].left_fork = &forks[i - 1];
 		i++;
 	}
 }
@@ -60,7 +66,7 @@ void	init_program(t_program *program, t_philo *philos)
 	pthread_mutex_init(&program->meal_lock, NULL);
 }
 
-void	destroy_threads(t_program *program, t_philo *forks, t_philo *philos)
+void	destroy_threads(t_program *program, pthread_mutex_t *forks, t_philo *philos)
 {
 	int i;
 

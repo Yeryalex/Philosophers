@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/23 15:39:22 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/23 17:03:15 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,11 @@ typedef struct s_program
 int		ft_atoi(char *str);
 void	check_arg(int argc, char **argv);
 int		non_numeric(char *str);
-void	init_philo_values(t_philo *philos, char **argv, t_program *program);
+void	init_philo_values(t_philo *philos, char **argv, t_program *program, pthread_mutex_t *forks);
 size_t	get_current_time(void);
 void	create_threads(t_philo *philos, t_program *program);
+void	init_program(t_program *program, t_philo *philos);
+void	init_forks(pthread_mutex_t *forks, int num_of_philos);
+void	destroy_threads(t_program *program, pthread_mutex_t *forks, t_philo *philos);
 
 #endif
