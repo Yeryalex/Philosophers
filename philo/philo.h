@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/23 17:03:15 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/23 20:03:10 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,11 @@ typedef struct	s_philo
 	pthread_t	thread;
 	int			id;
 	int			num_of_philos;
-	int			time_to_die;
-	int			time_to_eat;
-	int			time_to_sleep;
+	size_t		time_to_die;
+	size_t		time_to_eat;
+	size_t		time_to_sleep;
+	size_t		start_meal;
+	size_t		last_meal;
 	int			meals_per_philo;
 	int			*dead;
 	pthread_mutex_t	*right_fork;
