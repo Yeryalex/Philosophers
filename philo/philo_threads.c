@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 21:58:57 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/30 16:31:05 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/30 18:06:29 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -22,18 +22,20 @@ int	is_dead(t_philo *philo)
 void	*procedure(void *arg)
 {
 	t_philo *philo;
-
+	
 	philo = (t_philo *)arg;
-	if (!is_dead(philo))
+	if (philo->id % 2 == 0)
+		ft_usleep(1);
+	while (!is_dead(philo))
 	{
 		eat(philo);
 		dream(philo);
 		think(philo);
 	}
-	return (arg);
+	return (0);
 }
 
-void	create_threads(pthread_mutex_t *forks, t_program *program)
+int	create_threads(pthread_mutex_t *forks, t_program *program)
 {
 	pthread_t	observer;
 	int			i;
@@ -43,8 +45,10 @@ void	create_threads(pthread_mutex_t *forks, t_program *program)
 	i = 0;
 	while (i < program->philo[0].num_of_philos)
 	{
+		pthread_mutex_lock(program->philo->meal_lock);
 		pthread_create(&program->philo[i].thread, NULL, &procedure,
 				&program->philo[i]);
+		pthread_mutex_unlock(program->philo->meal_lock);
 			i++;
 	}
 	i = 0;
@@ -54,4 +58,5 @@ void	create_threads(pthread_mutex_t *forks, t_program *program)
 		pthread_join(program->philo[i].thread, NULL);
 		i++;
 	}
+	return (0);
 }

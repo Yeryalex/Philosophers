@@ -6,18 +6,18 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 20:05:45 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/30 14:48:09 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/30 18:00:13 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
 
-void	print_message(char *str, t_philo *philo, int id)
+void	print_message(char *color, char *str, t_philo *philo, int id)
 {
 	size_t	time;
 	pthread_mutex_lock(philo->write_lock);
 	time =  get_current_time() - philo->start_meal;
 	if (!is_dead(philo))
-		printf("%zu %i %s\n", time, id, str);
+		printf("%s%zu %i %s\n", color, time, id, str);
 	pthread_mutex_unlock(philo->write_lock);
 }
 
@@ -33,19 +33,19 @@ size_t	ft_usleep(size_t miliseconds)
 
 void	think(t_philo *philo)
 {
-	print_message("is thinking", philo, philo->id);
+	print_message(YELLOW, "is thinking", philo, philo->id);
 }
 
 void	dream(t_philo *philo)
 {
-	print_message("is sleeping", philo, philo->id);
+	print_message(BLUE, "is sleeping", philo, philo->id);
 	ft_usleep(philo->time_to_sleep);
 }
 
 void	eat(t_philo *philo)
 {
 	pthread_mutex_lock(philo->right_fork);
-	print_message("has taken a fork", philo, philo->id);
+	print_message(GRAY, "has taken a fork", philo, philo->id);
 	if (philo->num_of_philos == 1)
 	{
 		ft_usleep(philo->time_to_die);
@@ -53,9 +53,9 @@ void	eat(t_philo *philo)
 		return ;
 	}
 	pthread_mutex_lock(philo->left_fork);
-	print_message("has taken a fork", philo, philo->id);
+	print_message(GRAY, "has taken a fork", philo, philo->id);
 	philo->eating = 1;
-	print_message("is eating", philo, philo->id);
+	print_message(GREEN, "is eating", philo, philo->id);
 	pthread_mutex_lock(philo->meal_lock);
 	philo->last_meal = get_current_time();
 	philo->meals_eaten++;

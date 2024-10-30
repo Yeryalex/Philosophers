@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/30 15:32:23 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/30 18:00:42 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,19 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-# define MESSAGE "\033[96m=========================="
-# define MESSAGE2 "===========\n\t\tUsage:\n===================="
-# define MESSAGE3 "=================\n./philo "
-# define MESSAGE4 "[num of philos] [time_to_die] [time_to_eat] "
-# define MESSAGE5 "[time_to_sleep] [num_of_times_each_philo_must_eat]\033[0m\n"
+# define MESSAGE "\033[93m"
+# define MESSAGE2 "\n\tUsage:"
+# define MESSAGE3 "\n\033[0m\n ./philo "
+# define MESSAGE4 "[Num Philos] [time_to_die] [time_to_eat] "
+# define MESSAGE5 "[time_to_sleep] [num_of_times_each_philo_must_eat]\n\033[0m\n"
 # define MAX_PHILOS 242
 # define CYAN "\033[96m"
 # define GREEN "\033[92m"
 # define YELLOW "\033[93m"
 # define MAGENTA "\033[95m"
+# define RED "\033[31m"
+# define BLUE "\033[94m"
+# define GRAY "\033[90m"
 
 typedef struct	s_philo
 {
@@ -65,12 +68,12 @@ void	check_arg(int argc, char **argv);
 int		non_numeric(char *str);
 void	init_philo_values(t_philo *philos, char **argv, t_program *program, pthread_mutex_t *forks);
 size_t	get_current_time(void);
-void	create_threads(pthread_mutex_t *forks, t_program *program);
+int		create_threads(pthread_mutex_t *forks, t_program *program);
 void	init_program(t_program *program, t_philo *philos);
 void	init_forks(pthread_mutex_t *forks, int num_of_philos);
 void	destroy_threads(t_program *program, pthread_mutex_t *forks);
 size_t	ft_usleep(size_t miliseconds);
-void	print_message(char *str, t_philo *philo, int id);
+void	print_message(char *color, char *str, t_philo *philo, int id);
 int		is_dead(t_philo *philo);
 void	dream(t_philo *philo);
 void	think(t_philo *philo);
