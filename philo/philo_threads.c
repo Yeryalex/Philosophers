@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 21:58:57 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/30 14:28:49 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/30 14:35:47 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -28,7 +28,9 @@ void	*procedure(void *arg)
 		ft_usleep(1);
 	while (!is_dead(philo))
 	{
-		print_message("is my philo number id\n", philo, philo->id);
+		eat(philo);
+		sleep(philo);
+		think(philo);	
 	}
 	return (arg);
 }
