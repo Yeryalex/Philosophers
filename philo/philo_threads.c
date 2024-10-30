@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 21:58:57 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/30 14:35:47 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/30 16:31:05 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -24,34 +24,34 @@ void	*procedure(void *arg)
 	t_philo *philo;
 
 	philo = (t_philo *)arg;
-	if (philo->id % 2 == 0)
-		ft_usleep(1);
-	while (!is_dead(philo))
+	if (!is_dead(philo))
 	{
 		eat(philo);
-		sleep(philo);
-		think(philo);	
+		dream(philo);
+		think(philo);
 	}
 	return (arg);
 }
 
-void	create_threads(t_philo *philos, t_program *program)
+void	create_threads(pthread_mutex_t *forks, t_program *program)
 {
-	int	total_philos;
+	pthread_t	observer;
+	int			i;
 
-	int	i;
-	
-	total_philos = philos[0].num_of_philos;
+	(void)forks;
+	pthread_create(&observer, NULL, &supervisor, program->philo);
 	i = 0;
-	while (i < total_philos)
+	while (i < program->philo[0].num_of_philos)
 	{
-		pthread_create(&program->philo[i].thread, NULL, &procedure, &program->philo[i]);
+		pthread_create(&program->philo[i].thread, NULL, &procedure,
+				&program->philo[i]);
+			i++;
+	}
+	i = 0;
+	pthread_join(observer, NULL);
+	while (i < program->philo[0].num_of_philos)
+	{
+		pthread_join(program->philo[i].thread, NULL);
 		i++;
 	}
-	i= 0;
-    while (i < total_philos)
-    {
-        pthread_join(program->philo[i].thread, NULL);
-        i++;
-    }
 }

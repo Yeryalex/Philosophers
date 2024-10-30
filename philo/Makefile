@@ -6,7 +6,7 @@
 #    By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 17:58:45 by yrodrigu          #+#    #+#              #
-#    Updated: 2024/10/23 20:06:08 by yrodrigu         ###   ########.fr        #
+#    Updated: 2024/10/30 15:11:15 by yrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 CC = cc
@@ -16,6 +16,7 @@ CFILES =	philo.c\
 			init_philos.c\
 			philo_threads.c\
 			philo_actions.c\
+			supervisor.c\
 
 OFILES = $(CFILES:.c=.o)
 

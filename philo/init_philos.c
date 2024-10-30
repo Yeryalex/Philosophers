@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 19:28:37 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/24 16:18:31 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/30 16:24:47 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -32,11 +32,13 @@ void	init_philo_values(t_philo *philos, char **argv, t_program *program, pthread
 	{
 		init_input_values(&philos[i], argv);
 		philos[i].id = i + 1;
+		philos[i].eating = 0;
+		philos[i].meals_eaten = 0;
 		philos[i].start_meal = get_current_time();
 		philos[i].last_meal = get_current_time();
 		philos[i].dead = &program->dead_flag;
 		philos[i].write_lock = &program->write_lock;
-		philos[i].write_lock = &program->dead_lock;
+		philos[i].dead_lock = &program->dead_lock;
 		philos[i].meal_lock = &program->meal_lock;
 		philos[i].right_fork = &forks[i];
 		if (i == 0)
@@ -69,12 +71,12 @@ void	init_program(t_program *program, t_philo *philos)
 	pthread_mutex_init(&program->meal_lock, NULL);
 }
 
-void	destroy_threads(t_program *program, pthread_mutex_t *forks, t_philo *philos)
+void	destroy_threads(t_program *program, pthread_mutex_t *forks)
 {
 	int i;
 
 	i = 0;
-	while (i < philos[0].num_of_philos)
+	while (i < program->philo[0].num_of_philos)
 	{
 		pthread_mutex_destroy(&forks[i]);
 		i++;

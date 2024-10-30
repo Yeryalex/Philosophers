@@ -6,7 +6,7 @@
 /*   By: yrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:59:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2024/10/30 14:41:39 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2024/10/30 15:32:23 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,20 @@ void	check_arg(int argc, char **argv);
 int		non_numeric(char *str);
 void	init_philo_values(t_philo *philos, char **argv, t_program *program, pthread_mutex_t *forks);
 size_t	get_current_time(void);
-void	create_threads(t_philo *philos, t_program *program);
+void	create_threads(pthread_mutex_t *forks, t_program *program);
 void	init_program(t_program *program, t_philo *philos);
 void	init_forks(pthread_mutex_t *forks, int num_of_philos);
-void	destroy_threads(t_program *program, pthread_mutex_t *forks, t_philo *philos);
+void	destroy_threads(t_program *program, pthread_mutex_t *forks);
 size_t	ft_usleep(size_t miliseconds);
 void	print_message(char *str, t_philo *philo, int id);
 int		is_dead(t_philo *philo);
+void	dream(t_philo *philo);
+void	think(t_philo *philo);
+void	eat(t_philo *philo);
+void	*supervisor(void *pointer);
+void	*procedure(void *pointer);
+int		check_if_all_ate(t_philo *philos);
+int		check_if_dead(t_philo *philos);
+int		philosopher_dead(t_philo *philo, size_t time_to_die);
+
 #endif
